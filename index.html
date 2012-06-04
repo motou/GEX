@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title></title>
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<!--     <link rel="stylesheet" href="jquery.mobile-1.0.1.min.css" />
+   <script src="jquery-1.6.4.min.js"></script>
+    <script src="jquery.mobile-1.0.1.min.js"></script>
+-->
+      
+      <link rel="stylesheet" href="jquery.mobile-1.1.0.min.css" />
+      <script src="jquery-1.7.2.min.js"></script>
+      <script src="jquery.mobile-1.1.0.min.js"></script>
+      
+	<!-- iPad/iPhone specific css below, add after your main css >
+	<link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="ipad.css" type="text/css" />		
+	<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="iphone.css" type="text/css" />		
+	-->
+	<!-- If your application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
+	<script type="text/javascript" charset="utf-8" src="cordova-1.5.0.js"></script>
+    <script type="text/javascript" charset="utf-8" src="main.js"></script>
+    <link rel="stylesheet" href="gitwick.css" />
+  </head>
+    
+  <body onload="onBodyLoad()">
+
+      <div data-role="page" id="homepage" data-theme="a"> 
+          <div class="logotitle">
+          </div>
+          
+          <div data-role="content">
+   
+              <div id="dashboard">
+              <table summary="dashboard for the London Victoria - Gatwick Airport route" id="dbtable">
+                  <tbody>
+                      <tr>
+                          <td>
+                             <div class="launchicon">
+                                 <a href="#gatwickpage"><img src="img/gatwick.png" /><br />From Gatwick</a></div>
+                          </td>
+                          <td>
+                               <div class="launchicon">
+                                   <a href="#victoriapage"><img src="img/victoria.png" /><br />From Victoria</a></div>
+                          </td>
+                          <td>
+                               <div class="launchicon">
+                                   <a href="#ticketspage"><img src="img/tickets.png" /><br />Tickets</a></div>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>
+                               <div class="launchicon">
+                                   <a href="#infopage"><img src="img/info.png" /><br />Live flight info</a>
+                                   </div>
+                          </td>
+                          <td>
+                               <div class="launchicon">
+                                   <a href="#timetablepage" data-transition="slidefade"><img src="img/timetable.png" /><br />Timetable</a></div>
+                          </td>
+                          <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div> 
+          </div> 
+          
+          <div data-role="footer" data-id="footer" data-position="fixed" class="navbar">
+              <div data-role="navbar">
+                  <ul>
+                      <li><a href="#homepage" data-icon="custom" class="homebtn ui-btn-active">Home</a></li>
+                      <li><a href="#portalpage" data-icon="custom" class="portalbtn">Portal</a></li>
+                  </ul>
+              </div><!-- /navbar -->
+          </div><!-- /footer -->
+      </div><!-- /home -->
+      
+      <div data-role="page" id="iframepage" data-theme="a">
+          <!--<div data-role="header"> 
+              <a href="#homepage" data-role="button" data-icon="arrow-l" data-direction="reverse" data-rel="back" data-inline="true">Back</a><h1>From Gatwick</h1> 
+          </div> -->
+          
+          <div data-role="content" class="fullcontent">
+          </div>
+          
+          <div data-role="footer" data-id="footer" data-position="fixed" class="navbar">
+              <div data-role="navbar">
+                  <ul>
+                      <li><a href="#homepage" data-icon="custom" class="homebtn">Home</a></li>
+                      <li><a href="#portalpage" data-icon="custom" class="portalbtn">Portal</a></li>
+                  </ul>
+              </div><!-- /navbar -->
+          </div><!-- /footer -->
+      </div><!-- /iframepage -->
+      
+
+      <div data-role="page" id="noconnpage" data-theme="a">
+          <div data-role="content" >
+              <div class="errinfo">
+                  <p id="errsymbol">:(</p>
+                  <p>Server is not reachable</p>
+                  <div id="tryagain"></div>        
+              </div>
+          </div>
+          
+          <div data-role="footer" data-id="footer" data-position="fixed" class="navbar">
+              <div data-role="navbar">
+                  <ul>
+                      <li><a href="#homepage" data-icon="custom" class="homebtn">Home</a></li>
+                      <li><a href="#portalpage" data-icon="custom" class="portalbtn">Portal</a></li>
+                  </ul>
+              </div><!-- /navbar -->
+          </div><!-- /footer -->
+      </div><!-- /noconnpage -->
+      
+      <div data-role="page" id="ticketspage" data-theme="a" data-dom-cache="true">
+          <div data-role="header" data-position="fixed"> 
+              <a href="#homepage" data-role="button" data-icon="arrow-l" data-direction="reverse" data-rel="back" data-inline="true">Back</a><h1>Tickets</h1>
+              <a href="#ticketspage" data-role="button" data-icon="refresh" data-iconpos="notext" data-inline="true" id="refreshBtn" onclick="return restoreHistory();">Refresh</a>
+          </div> 
+          <div data-role="content"> 
+              
+          </div>
+              
+          <div data-role="footer" data-id="footer" data-position="fixed" class="navbar">
+              <div data-role="navbar">
+                  <ul>
+                      <li><a href="#homepage" data-icon="custom" class="homebtn ui-btn-active">Home</a></li>
+                      <li><a href="#portalpage" data-icon="custom" class="portalbtn">Portal</a></li>
+                  </ul>
+              </div><!-- /navbar -->
+          </div><!-- /footer -->
+      </div><!-- /tickets -->
+      
+      <div data-role="page" id="detail" data-theme="a" data-dom-cache="true">
+          <div data-role="header">
+              <a href="#ticketspage" data-role="button" data-icon="arrow-l" data-direction="reverse" data-rel="back" data-inline="true">Back</a><h1></h1>
+          </div>
+          <div data-role="content">
+               <li><img alt="" class="ui-li-icon" src="images/ajax-loader.gif" />Loading..</li>
+          </div>
+          <div data-role="footer" data-id="footer" data-position="fixed" class="navbar">
+              <div data-role="navbar">
+                  <ul>
+                      <li><a href="#homepage" data-icon="custom" class="homebtn ui-btn-active">Home</a></li>
+                      <li><a href="#portalpage" data-icon="custom" class="portalbtn">Portal</a></li>
+                  </ul>
+              </div><!-- /navbar -->
+          </div><!-- /footer -->
+      </div><!-- /detail -->
+      
+      <div data-role="page" id="timetablepage"> 
+          <div data-role="header"  data-position="fixed"> 
+              <a href="#homepage" data-role="button" data-icon="arrow-l" data-direction="reverse" data-rel="back" data-inline="true">Back</a><h1>Timetable</h1> 
+          </div> 
+          <div data-role="content">
+                  <div id="times_vic_to_gat">
+                      <h2>London Victoria - Gatwick Airport</h2>
+                      <table summary="timetable information for the London Victoria - Gatwick Airport route">
+                          <tbody>
+                              <tr>
+                                  <th>Monday to Sunday</th>
+                                  <th>From</th>
+                                  <th>Until</th>
+                              </tr>
+                              <tr>
+                                  <td>First trains 03:30 04:30</td>
+                                  <td colspan="2"></td>
+                              </tr>
+                              <tr>
+                                  <td><strong>Every 15 minutes</strong></td>
+                                  <td>05:00</td>
+                                  <td>23:45</td>
+                              </tr>
+                              <tr>
+                                  <td>Last trains 00:01 00:32</td>
+                                  <td colspan="2"></td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <div class="notes">
+                          <p><em>Average timetabled journey time 30 minutes (35 minutes on Sundays)</em></p>
+                      </div>
+                  </div>
+              
+                  <div id="times_gat_to_vic">
+                      <h2>Gatwick Airport - London Victoria</h2>
+                      <table summary="timetable information for the Gatwick Airport - London Victoria route">
+                          <tbody>
+                              <tr>
+                                  <th>Monday to Sunday</th>
+                                  <th>From</th>
+                                  <th>Until</th>
+                              </tr>
+                              <tr>
+                                  <td>First trains 04:35 05:20</td>
+                                  <td colspan="2"></td>
+                              </tr>
+                              <tr>
+                                  <td><strong>Every 15 minutes</strong></td>
+                                  <td>05:50</td>
+                                  <td>00:35</td>
+                              </tr>
+                              <tr>
+                                  <td>Last trains 00:50 01:35</td>
+                                  <td colspan="2"></td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <div class="notes">
+                          <p><em>Average timetabled journey time 30 minutes (35 minutes on Sundays)</em></p>
+                      </div>
+                  </div>
+              </div>
+              
+            <div data-role="footer" data-id="footer" data-position="fixed" class="navbar">
+                  <div data-role="navbar">
+                      <ul>
+                          <li><a href="#homepage" data-icon="custom" class="homebtn ui-btn-active">Home</a></li>
+                          <li><a href="#portalpage" data-icon="custom" class="portalbtn">Portal</a></li>
+                      </ul>
+                  </div><!-- /navbar -->
+            </div><!-- /footer -->
+              
+      </div><!-- /timetable -->
+      
+  </body>
+</html>

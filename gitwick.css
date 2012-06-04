@@ -1,0 +1,177 @@
+* {
+    -webkit-touch-callout: none; /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none; /* prevent webkit from resizing text to fit */
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+    -webkit-user-select: none; /* prevent copy paste, to allow, change 'none' to 'text' */
+} 
+
+input, textarea, select{
+    -webkit-user-select: auto;
+    -webkit-touch-callout: auto;
+}
+
+/*** patch for jquerymobile page flicker that was happening ***/
+.ui-page {
+    -webkit-backface-visibility: hidden;
+} 
+
+
+.launchicon {
+    text-align: center;
+}
+
+.launchicon a {
+    text-decoration: none;
+    text-color:white;
+}
+
+
+.navbar .ui-btn .ui-btn-inner { 
+    padding-top: 40px !important; 
+}
+
+.navbar .ui-btn .ui-icon { 
+    width: 30px!important; 
+    height: 30px!important; 
+    margin-left: -15px !important; 
+    box-shadow: none!important; 
+    -moz-box-shadow: none!important; 
+    -webkit-box-shadow: none!important; 
+    -webkit-border-radius: 0 !important; 
+    border-radius: 0 !important; 
+}
+
+
+
+h2 {
+font-size:1em;
+}
+
+.fullcontent {
+margin: 0;
+padding:0;
+}
+
+.errinfo {
+    text-align: center; 
+}
+
+.clearHistory {
+    text-align: center;
+    margin-top:20px;
+}
+
+#errsymbol {
+    font-size: 5em;
+    font-weight:bold;
+    color: #aaa;
+}
+
+.notes {
+   font-size:0.85em;
+   color:#666;
+   margin:0 0 0.5em 0;
+}
+
+.buyinfo {
+   font-weight:normal;
+   font-size:0.8em;
+   color:#aaa;
+   padding:0 0 1em 1.2em;
+}
+
+.logotitle { 
+    background:  url(img/logo_s.png) 50% 50% no-repeat;
+    height:38px;
+    background-color: red!important;
+    /*background-image: url(img/logo_s.png)!important;
+    background-repeat:no-repeat!important;
+    background-position: 50% 50%!important;*/
+    
+}
+
+.homebtn .ui-icon { background:  url(img/home.png) 50% 50% no-repeat; background-size: 24px 24px; }
+.portalbtn .ui-icon { background:  url(img/web.png) 50% 50% no-repeat; background-size: 24px 24px;  }
+
+#dashboard {
+    text-align: center;
+    width:100%;
+}
+
+#dbtable td {
+    width: 140px;
+    height:100px;
+}
+
+#dbtable td a {
+    text-decoration:none;
+    text-underline:none;
+    text-size:0.8em!important;
+    color: #dddddd;
+    text-shadow: none;
+    font-size: 11px;
+    bottom: 0;
+    opacity:1.0;
+}
+
+#dbtable td a:hover {
+    opacity:0.7;
+    filter:alpha(opacity=70); /* For IE8 and earlier */
+}
+
+#dbtable td a img {
+	opacity:1.0;
+    filter:alpha(opacity=100); /* For IE8 and earlier */
+}
+
+
+#dbtable td a img:hover {
+    opacity:0.4;
+    filter:alpha(opacity=40); /* For IE8 and earlier */
+}
+
+/* Timetable */
+
+#timetablepage table {
+   font-size:0.85em;
+   border-color:#000;
+   border-style:solid;
+   border-width:0 0 1px 1px;
+   border-collapse:collapse;
+   margin:0 0 0.5em 0;
+}
+#timetablepage table th {
+  padding:4px 5px 4px 5px;
+   border-color:#000;
+   border-style:solid;
+   border-width:1px 1px 0 0;
+   color:#fff;
+   background-color:#000;
+}
+#timetablepage table td {
+  padding:4px 5px 4px 5px;
+  background-color:#fff;
+  border-color:#000;
+  border-style:solid;
+  border-width:1px 1px 0 0;
+}
+#times_vic_to_gat h2 {
+   border:none;
+   padding:0;
+}
+
+/* ticket detail */
+.barcode {
+    padding: 6px 4px 2px 4px; 
+    width: 175px;
+    height: 175px;
+    border: solid 1px #aaa;
+    text-align:center;
+    margin:0 auto;
+    background:  url(img/barcode.png) 50% 50% no-repeat; background-size: 171px 171px;
+}
+
+.details {
+    margin-top:10px;
+}
+

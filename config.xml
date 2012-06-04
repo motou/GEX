@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns		= "http://www.w3.org/ns/widgets"
+	xmlns:gap		= "http://phonegap.com/ns/1.0"
+	id				= "com.cubic.gex"
+	version 		= "1.0.0">
+
+	<name>GEX</name>
+
+	<description>
+		App for Gatwick Express
+	</description>
+
+	<author href="http://motou.github.com" email="Zhen.Wang@cubic.com">
+		Zhen Wang
+	</author>
+
+	<icon src="icons/icon.png" gap:role="default" />
+<!-- iOS requires specific dimensions for icons; classic iPhone screens, Retina
+    displays, and iPad screens respectively -->
+	<icon src="icons/icon.png" width="57" height="57"/>
+	<icon src="icons/icon-2x.png" width="114" height="114"/>
+
+<!-- Android requires specific dimensions; ldpi, mdpi, and hdpi respectively -->
+	<icon src="icons/icon.png" width="36" height="36"/>
+	<icon src="icons/icon-72.png" width="72" height="72"/>
+
+<!-- iOS requires specific dimensions for different devices; classic iPhone
+  screens, Retina displays, and iPad screens -->
+	<gap:splash src="splash/Default.png"/>
+	<gap:splash src="splash/Default-2x.png" width="640" height="960"/>
+
+	<feature name="http://api.phonegap.com/1.0/network"/>
+
+	<preference name="orientation" value="portrait" />
+	<preference name="stay-in-webview" value="true" />
+	
+	<access origin="*" />
+</widget>
