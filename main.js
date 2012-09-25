@@ -301,11 +301,13 @@ $(document).bind( "pagebeforechange", function( e, data ) {
             
             // http://m.m-gex.com/gatwickexpress/home.jsf
             if ( u.hash.search(gatwick) !== -1 ) {
-                 redirect = "http://10.65.3.150:8080/gatwickexpress/tickettypes.jsf?direction=true";
+//                 redirect = "http://10.65.3.150:8080/gatwickexpress/tickettypes.jsf?direction=true";
+				 redirect = "http://test.m-gex.com/gatwickexpress/app/home.jsf?direction=true";
                  showEmbeddedPage( u, data.options, redirect );
                  e.preventDefault();
             } else if ( u.hash.search(victoria) !== -1 ) {
-                 redirect = "http://10.65.3.150:8080/gatwickexpress/tickettypes.jsf?direction=false";
+//                 redirect = "http://10.65.3.150:8080/gatwickexpress/tickettypes.jsf?direction=false";
+				 redirect = "http://test.m-gex.com/gatwickexpress/app/home.jsf?direction=false";
                  showEmbeddedPage( u, data.options, redirect );
                  e.preventDefault();
             } else if ( u.hash.search(infopage) !== -1 ) {
