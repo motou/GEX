@@ -1,32 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title></title>
-  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	  <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 
-<!--     <link rel="stylesheet" href="jquery.mobile-1.0.1.min.css" />
-   <script src="jquery-1.6.4.min.js"></script>
-    <script src="jquery.mobile-1.0.1.min.js"></script>
--->
+      <link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css" />
+      <script src="js/jquery-1.10.2.min.js"></script>
+      <script src="js/jquery.mobile-1.3.2.min.js"></script>
+            	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+      <link rel="stylesheet" href="css/gitwick.css" />
       
-      <link rel="stylesheet" href="jquery.mobile-1.1.0.min.css" />
-      <script src="jquery-1.7.2.min.js"></script>
-      <script src="jquery.mobile-1.1.0.min.js"></script>
-      
-	<!-- iPad/iPhone specific css below, add after your main css >
-	<link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="ipad.css" type="text/css" />		
-	<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="iphone.css" type="text/css" />		
-	-->
-	<!-- If your application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
-	<script type="text/javascript" charset="utf-8" src="cordova-1.5.0.js"></script>
-    <script type="text/javascript" charset="utf-8" src="main.js"></script>
-    <link rel="stylesheet" href="gitwick.css" />
   </head>
     
-  <body onload="onBodyLoad()">
-
-      <div data-role="page" id="homepage" data-theme="a"> 
+  <body>
+      <div data-role="page" id="homepage" data-theme="c"> 
           <div class="logotitle">
           </div>
           
@@ -46,7 +35,7 @@
                           </td>
                           <td>
                                <div class="launchicon">
-                                   <a href="#ticketspage"><img src="img/tickets.png" /><br />Tickets</a></div>
+                                   <a href="#ticketspage" data-transition="slide"><img src="img/tickets.png" /><br />Tickets</a></div>
                           </td>
                       </tr>
                       <tr>
@@ -57,9 +46,9 @@
                           </td>
                           <td>
                                <div class="launchicon">
-                                   <a href="#timetablepage" data-transition="slidefade"><img src="img/timetable.png" /><br />Timetable</a></div>
+                                   <a href="#timetablepage" data-transition="slide"><img src="img/timetable.png" /><br />Timetable</a></div>
                           </td>
-                          <td></td>
+                          
                       </tr>
                     </tbody>
                   </table>
@@ -76,7 +65,7 @@
           </div><!-- /footer -->
       </div><!-- /home -->
       
-      <div data-role="page" id="iframepage" data-theme="a">
+      <div data-role="page" id="iframepage" data-theme="c">
           <!--<div data-role="header"> 
               <a href="#homepage" data-role="button" data-icon="arrow-l" data-direction="reverse" data-rel="back" data-inline="true">Back</a><h1>From Gatwick</h1> 
           </div> -->
@@ -95,7 +84,7 @@
       </div><!-- /iframepage -->
       
 
-      <div data-role="page" id="noconnpage" data-theme="a">
+      <div data-role="page" id="noconnpage" data-theme="c">
           <div data-role="content" >
               <div class="errinfo">
                   <p id="errsymbol">:(</p>
@@ -114,8 +103,8 @@
           </div><!-- /footer -->
       </div><!-- /noconnpage -->
       
-      <div data-role="page" id="ticketspage" data-theme="a" data-dom-cache="true">
-          <div data-role="header" data-position="fixed"> 
+      <div data-role="page" id="ticketspage" data-theme="c" data-dom-cache="true">
+          <div data-role="header" data-position="fixed" data-theme="c"> 
               <a href="#homepage" data-role="button" data-icon="arrow-l" data-direction="reverse" data-rel="back" data-inline="true">Back</a><h1>Tickets</h1>
               <a href="#ticketspage" data-role="button" data-icon="refresh" data-iconpos="notext" data-inline="true" id="refreshBtn" onclick="return restoreHistory();">Refresh</a>
           </div> 
@@ -133,8 +122,8 @@
           </div><!-- /footer -->
       </div><!-- /tickets -->
       
-      <div data-role="page" id="detail" data-theme="a" data-dom-cache="true">
-          <div data-role="header">
+      <div data-role="page" id="detail" data-theme="c" data-dom-cache="true">
+          <div data-role="header" data-theme="c">
               <a href="#ticketspage" data-role="button" data-icon="arrow-l" data-direction="reverse" data-rel="back" data-inline="true">Back</a><h1></h1>
           </div>
           <div data-role="content">
@@ -150,8 +139,8 @@
           </div><!-- /footer -->
       </div><!-- /detail -->
       
-      <div data-role="page" id="timetablepage"> 
-          <div data-role="header"  data-position="fixed"> 
+      <div data-role="page" id="timetablepage"  data-theme="c"> 
+          <div data-role="header" data-position="fixed" data-theme="c"> 
               <a href="#homepage" data-role="button" data-icon="arrow-l" data-direction="reverse" data-rel="back" data-inline="true">Back</a><h1>Timetable</h1> 
           </div> 
           <div data-role="content">
@@ -224,6 +213,6 @@
             </div><!-- /footer -->
               
       </div><!-- /timetable -->
-      
+
   </body>
 </html>
